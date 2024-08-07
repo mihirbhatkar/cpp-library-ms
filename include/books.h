@@ -7,28 +7,19 @@ class Book {
 protected:
   int price;
   std::string name;
+  std::string category;
+  std::string author;
+
   static int counter;
   int id;
 
 public:
-  Book(int price, const std::string &name);
+  Book(int price, const std::string &name, const std::string &author,
+       const std::string &category);
 
   int getPrice();
   int getId();
   std::string getName();
-
-  void printInfo();
-};
-
-class CBook : protected Book {
-protected:
-  std::string category;
-  std::string author;
-
-public:
-  CBook(int price, const std::string &name, const std::string &author,
-        const std::string &category);
-
   std::string getAuthor();
   std::string getCategory();
 

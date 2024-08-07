@@ -11,6 +11,8 @@ include_directories(include)
 set(SOURCES
     src/main.cpp
     src/books.cpp
+    src/utility.cpp
+    src/racks.cpp
 )
 
 # Define the executable
