@@ -13,6 +13,7 @@ set(SOURCES
     src/books.cpp
     src/utility.cpp
     src/racks.cpp
+    src/bookshelfs.cpp
 )
 
 # Define the executable
