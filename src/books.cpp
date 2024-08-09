@@ -15,7 +15,7 @@ std::string Book::getAuthor() { return author; }
 std::string Book::getCategory() { return category; }
 
 void Book::printInfo() {
-  std::cout << "Id: " << id << ", Name: " << name << ", Price: " << price
-            << ", Category: " << category << ", Author: " << author
+  std::cout << id << "\t" << name << "\t" << price
+            << "\t" << category << "\t" << author
             << std::endl;
 }

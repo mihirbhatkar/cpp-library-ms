@@ -16,11 +16,12 @@ private:
 
 public:
   BookShelf(std::string &category);
+  ~BookShelf();
   int totalBooks(); // return length of all racks
   void printAllBooks();
   Rack* addRack(Rack* rack);
-  Rack* removeRack(Rack* rack);
-  Book *removeBook(Book *book);
+  void removeRack(Rack* rack);
+  void removeBook(Book *book);
   Book* addBook(Book* book);
   std::vector<Book *> findBookByName(std::string &search);
   Book *findBookById(int id);

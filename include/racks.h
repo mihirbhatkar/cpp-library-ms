@@ -14,12 +14,14 @@ private:
 
 public:
   Rack();
+  ~Rack();
 
+  std::vector<Book *> getBooks();
   int totalBooks(); // return length of books vector
   void printAllBooks();
 
   Book *addBook(Book *book);
-  Book *removeBook(Book *book);
+  void removeBook(Book *book);
   std::vector<Book *> findBookByName(std::string &search);
   Book *findBookById(int id);
 };

@@ -7,6 +7,10 @@ int BookShelf::counter = 0;
 BookShelf::BookShelf(std::string &category)
     : category(category), id(counter++), racks({}){};
 
+BookShelf::~BookShelf(){
+  for(Rack * rack:racks) delete rack;
+}
+
 int BookShelf::totalBooks() {
   int sum = 0;
   for (Rack *rack : racks)
@@ -31,34 +35,31 @@ Rack *BookShelf::addRack(Rack *rack) {
   return rack;
 };
 
-Rack *BookShelf::removeRack(Rack *rack) {
-
+void BookShelf::removeRack(Rack *rack) {
   if (racks.size() == 0)
-    return nullptr;
+    return;
 
   for (auto it = racks.begin(); it <= racks.end(); it++) {
     Rack *ptr = *it;
     if (rack == ptr) {
-      std::cout << "Rack removed successfully!" << std::endl;
       racks.erase(it);
-      return rack;
+      delete rack;
+      std::cout << "Rack removed successfully!" << std::endl;
+      return;
     }
   }
-
-  return nullptr;
+  return;
 };
 
-Book *BookShelf::removeBook(Book *book) {
-
+void BookShelf::removeBook(Book *book) {
   for (Rack *rack : racks) {
-    if (rack->removeBook(book) == nullptr)
-      continue;
+    rack->removeBook(book);
     std::cout << "Book deleted successfully from bookshelf " << id << std::endl;
-    return book;
+    return;
   }
 
   std::cout << "Book does not exist in bookshelf " << id << std::endl;
-  return nullptr;
+  return;
 };
 
 Book *BookShelf::addBook(Book *book) {

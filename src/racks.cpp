@@ -9,6 +9,12 @@ int Rack::counter = 0;
 
 Rack::Rack() : capacity(10), id(counter++), books({}) {};
 
+Rack::~Rack(){
+  for(Book* book: books){
+    delete book;
+  }
+};
+
 int Rack::totalBooks() { return books.size(); };
 
 void Rack::printAllBooks() {
@@ -28,20 +34,21 @@ Book *Rack::addBook(Book *book) {
   return nullptr;
 }
 
-Book *Rack::removeBook(Book *book) {
+void Rack::removeBook(Book *book) {
   for (auto it = books.begin(); it <= books.end(); it++) {
     Book *ptr = *it;
     if (book == ptr) {
       books.erase(it);
-
+      delete book;
       std::cout << "Book removed from rack id " << id << std::endl;
-      return book;
+      return;
     }
   }
 
   std::cout << "Book not found in rack id " << id << std::endl;
-  return nullptr;
 }
+
+std::vector<Book *> Rack::getBooks(){return books;};
 
 std::vector<Book *> Rack::findBookByName(std::string &search) {
   std::vector<Book *> results;
