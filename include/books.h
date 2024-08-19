@@ -9,7 +9,7 @@ protected:
   std::string name;
   std::string category;
   std::string author;
-
+  bool borrowed;
   static int counter;
   int id;
 
@@ -22,7 +22,8 @@ public:
   std::string getName();
   std::string getAuthor();
   std::string getCategory();
-
+  bool getBorrowedStatus();
+  void changeBorrowedStatus();
   void printInfo();
 };
 

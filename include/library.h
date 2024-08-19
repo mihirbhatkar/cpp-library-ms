@@ -7,10 +7,10 @@
 class Library {
 private:
   std::vector<BookShelf *> bookShelfs = {}; 
+  static int totalBooks;
 
 public:
   Library();
-  int totalBooks();
   BookShelf* addBookShelf(BookShelf* bookShelf);
   BookShelf* removeBookShelf(BookShelf* bookShelf);
 };
